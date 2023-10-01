@@ -31,7 +31,7 @@ Confluent
 ## Data Ingestion with Kafka
 
 ### Setting Up a Kafka Broker
-Following confluent's basic set up with Python and using a local cluster. 
+Following Confluent's basic set up with Python and using a local cluster. 
 
 1. Prerequisites    
    a. Linux    
@@ -43,7 +43,7 @@ Following confluent's basic set up with Python and using a local cluster.
 ```bash
 pip install confluent-kafka configparser
 ```
-3. Create a docker-compose.yml file and start it. See 'docker-compose.yml'. The file includes configuration for Kafka Exporter, Prometheus, and Grafana which will be used for monitoring and visualization.
+3. Create a docker-compose.yml file and start it. See 'docker-compose.yml'. The file includes configuration for Kafka Exporter, Prometheus, and Grafana which will be used for monitoring and visualization.  
 ```bash
 docker network create kafka-network
 docker-compose up -d
@@ -91,42 +91,42 @@ Consumed event from topic clickstream: user_id = 358, page = homepage, action = 
 
 ### Snowflake Setup
 
-Create tables in Snowflake to hold both raw and enriched data. 
+Create tables in Snowflake to hold both raw and enriched data.   
 
 ### Spark Streaming Job
 
-Create a Spark job that batch processes to Snowflake and run it. See 'spark_streaming_job.py'. Here we're using foreachBatch to call the function. 
+Create a Spark job that batch processes to Snowflake and run it. See 'spark_streaming_job.py'. Here we're using foreachBatch to call the function.   
 
 ### Data Transformation 
 
-We're transforming in real-time by deserializing JSON data and transforming the data to create a new DataFrame with a flattened structure. 
+We're transforming in real-time by deserializing JSON data and transforming the data to create a new DataFrame with a flattened structure.   
 
 ### Real-Time Data Enrichmenet 
 
-In the process_batch() function, we're writing a raw table and an enriched table to Snowflake.  
+In the process_batch() function, we're writing a raw table and an enriched table to Snowflake.    
 
 
 ## Monitoring, Logging, and Alerts
 
 ### Setup Logging in Job Script
 
-Implement logging in the batch processing script.
+Implement logging in the batch processing script.  
 
 ### Monitoring Script with Alerts
 
-Set up a monitoring script that triggers alerts based on defined conditions. See 'monitoring.py'. Alerts are written to the terminal. Email alerts can be added.
+Set up a monitoring script that triggers alerts based on defined conditions. See 'monitoring.py'. Alerts are written to the terminal. Email alerts can be added.  
 
 ### Kafka Exporter + Prometheus
 
-Configuration for Kafka Exporter and Prometheus was done earlier using docker commands and the YML file. 
+Configuration for Kafka Exporter and Prometheus was done earlier using docker commands and the YML file.   
 
-Visit http://localhost:9090 to see the Prometheus dashboard. You should see a target named 'kafka-exporter' under the "Targets" tab. 
+Visit http://localhost:9090 to see the Prometheus dashboard. You should see a target named 'kafka-exporter' under the "Targets" tab.   
 
 ### Grafana
 
-1. Go to http://localhost:3000/ and login with credentials (admin/admin).
-2. Select "Prometheus" under "Add data source" and set the URL to "http://prometheus:9090".
-3. Click "Save & Test" to add the data source and begin building visualizations. See below my sample dashboard.
+1. Go to http://localhost:3000/ and login with credentials (admin/admin).  
+2. Select "Prometheus" under "Add data source" and set the URL to "http://prometheus:9090".  
+3. Click "Save & Test" to add the data source and begin building visualizations. See below my sample dashboard.  
 
 <img src="/media/grafana_dashboard.webm" alt="Alt text" width="750"/>  
 
