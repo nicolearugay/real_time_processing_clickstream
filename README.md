@@ -128,6 +128,6 @@ Visit http://localhost:9090 to see the Prometheus dashboard. You should see a ta
 2. Select "Prometheus" under "Add data source" and set the URL to "http://prometheus:9090".  
 3. Click "Save & Test" to add the data source and begin building visualizations. See below my sample dashboard.  
 
-<img src="/media/grafana_dashboard.gif" alt="Alt text" width="750"/>  
+<img src="/media/grafana_dashboard.gif" alt="Alt text" width="800"/>  
 
 
