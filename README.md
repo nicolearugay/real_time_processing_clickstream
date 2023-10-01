@@ -116,7 +116,7 @@ Implement logging in the batch processing script.
 
 Set up a monitoring script that triggers alerts based on defined conditions. See 'monitoring.py'. Alerts are written to the terminal. Email alerts can be added.  
 
-### Kafka Exporter + Prometheus
+### Kafka Exporter & Prometheus
 
 Configuration for Kafka Exporter and Prometheus was done earlier using docker commands and the YML file.   
 
