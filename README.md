@@ -26,7 +26,7 @@ Confluent
 
 ## Data Flow Design
 
-<img src="/screenshots/architecture.png" alt="Alt text" width="750"/>  
+<img src="/media/architecture.png" alt="Alt text" width="750"/>  
 
 ## Data Ingestion with Kafka
 
@@ -43,8 +43,12 @@ Following confluent's basic set up with Python and using a local cluster.
 ```bash
 pip install confluent-kafka configparser
 ```
-3. Create a docker-compose.yml file and start it. See 'docker-compose.yml'.  
-4. Create an ini file. See 'example.ini'  
+3. Create a docker-compose.yml file and start it. See 'docker-compose.yml'. The file includes configuration for Kafka Exporter, Prometheus, and Grafana which will be used for monitoring and visualization.
+```bash
+docker network create kafka-network
+docker-compose up -d
+```
+4. Create an ini file. See 'example.ini'.    
 5. Create a topic called 'clickstream'.   
 ```bash
 docker compose exec broker \
@@ -66,8 +70,6 @@ chmod u+x producer.py
 ```
 Output looks like the following:   
 ```bash
-Produced record to clickstream
-Produced record to clickstream
 Produced record to clickstream
 Produced record to clickstream
 Produced record to clickstream
@@ -116,9 +118,16 @@ Set up a monitoring script that triggers alerts based on defined conditions. See
 
 ### Kafka Exporter + Prometheus
 
-Configure Kafka Exporter and Prometheus for monitoring Kafka metrics.
+Configuration for Kafka Exporter and Prometheus was done earlier using docker commands and the YML file. 
+
+Visit http://localhost:9090 to see the Prometheus dashboard. You should see a target named 'kafka-exporter' under the "Targets" tab. 
 
 ### Grafana
 
-Set up Grafana to visualize the metrics from Prometheus.
+1. Go to http://localhost:3000/ and login with credentials (admin/admin).
+2. Select "Prometheus" under "Add data source" and set the URL to "http://prometheus:9090".
+3. Click "Save & Test" to add the data source and begin building visualizations. See below my sample dashboard.
+
+<img src="/media/grafana_dashboard.webm" alt="Alt text" width="750"/>  
+
 
