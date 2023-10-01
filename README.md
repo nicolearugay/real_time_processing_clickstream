@@ -33,13 +33,13 @@ Confluent
 ### Setting Up a Kafka Broker
 Following Confluent's basic set up with Python and using a local cluster. 
 
-1. Prerequisites    
-   a. Linux    
-   b. Python    
-2. Create project  
-   a. Create a new directory  
-   b. Create and activate a Python virtual environment  
-   c. Install the following libraries  
+1. Prerequisites:      
+   a. Linux/macOS      
+   b. Python      
+2. Create project.    
+   a. Create a new directory.      
+   b. Create and activate a Python virtual environment.      
+   c. Install the following libraries:    
 ```bash
 pip install confluent-kafka configparser
 ```
