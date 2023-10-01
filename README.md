@@ -48,8 +48,9 @@ pip install confluent-kafka configparser
 docker network create kafka-network
 docker-compose up -d
 ```
-4. Create an ini file. See 'example.ini'.    
-5. Create a topic called 'clickstream'.   
+4. Create a YML file to set up Prometheus. See 'prometheus.yml'.
+5. Create an ini file. See 'config.ini'.    
+6. Create a topic called 'clickstream'.   
 ```bash
 docker compose exec broker \
   kafka-topics --create \
@@ -66,7 +67,7 @@ docker compose exec broker \
 3. Produce events.  
 ```bash
 chmod u+x producer.py
-./clickstream_producer.py getting_started.ini
+./clickstream_producer.py config.ini
 ```
 Output looks like the following:   
 ```bash
@@ -77,7 +78,7 @@ Produced record to clickstream
 4. In another terminal, consume events.  
 ```bash
 chmod u+x consumer.py
-./consumer.py getting_started.ini
+./consumer.py config.ini
 ```
 Output:   
 ```bash
